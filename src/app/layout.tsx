@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import ClientOnly from "@/components/common/ClientOnly";
+import RegisterModal from "@/components/common/modals/RegisterModal";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={nunito.className}>
         <ClientOnly>
+          <RegisterModal />
           <Navbar />
         </ClientOnly>
         {children}
