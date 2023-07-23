@@ -8,6 +8,8 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import useRegisterModal from "@/hooks/useRegisterModal";
 import Modal from "./Modal";
+import Heading from "../Heading";
+import Input from "../inputs/Input";
 
 export default function RegisterModal() {
   const registerModal = useRegisterModal();
@@ -41,6 +43,38 @@ export default function RegisterModal() {
       });
   };
 
+  const bodyContent = (
+    <div className="flex flex-col gap-4">
+      <Heading title="Welcome to Book My Stay" subtitle="Create an account" />
+
+      <Input
+        id="fullName"
+        label="Full Name"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input
+        id="email"
+        label="Email"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input
+        id="password"
+        label="password"
+        type="password"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
+    </div>
+  );
+
   return (
     <Modal
       disabled={isLoading}
@@ -49,6 +83,7 @@ export default function RegisterModal() {
       actionLabel="Continue"
       onClose={() => registerModal.onClose()}
       onSubmit={handleSubmit(onSubmit)}
+      body={bodyContent}
     />
   );
 }
