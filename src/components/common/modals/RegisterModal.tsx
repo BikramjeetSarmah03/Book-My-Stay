@@ -5,6 +5,7 @@ import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 import useRegisterModal from "@/hooks/useRegisterModal";
 import Modal from "./Modal";
@@ -36,7 +37,7 @@ export default function RegisterModal() {
         registerModal.onClose();
       })
       .catch((err) => {
-        console.log(err);
+        toast.error("Something went wrong.");
       })
       .finally(() => {
         setIsLoading(false);
