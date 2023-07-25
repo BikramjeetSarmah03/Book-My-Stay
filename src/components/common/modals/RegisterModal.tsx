@@ -50,7 +50,7 @@ export default function RegisterModal() {
       <Heading title="Welcome to Book My Stay" subtitle="Create an account" />
 
       <Input
-        id="fullName"
+        id="name"
         label="Full Name"
         disabled={isLoading}
         register={register}
