@@ -7,6 +7,7 @@ import ClientOnly from "@/components/common/ClientOnly";
 import RegisterModal from "@/components/common/modals/RegisterModal";
 import ToasterProvider from "@/providers/ToasterProvider";
 import LoginModal from "@/components/common/modals/LoginModal";
+import getCurrentUser from "@/actions/getCurrentUser";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -15,11 +16,13 @@ export const metadata: Metadata = {
   description: "Hotel Booking Web App made using NextJs",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const currentUser = await getCurrentUser();
+
   return (
     <html lang="en">
       <body className={nunito.className}>
@@ -28,7 +31,7 @@ export default function RootLayout({
           <RegisterModal />
           <LoginModal />
         </ClientOnly>
-        <Navbar />
+        <Navbar currentUser={currentUser} />
         {children}
         <Footer />
       </body>
