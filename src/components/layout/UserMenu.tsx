@@ -30,7 +30,7 @@ export default function UserMenu({ currentUser }: UserMenuProps) {
         <div
           className="hidden px-4 py-3 text-sm font-semibold transition rounded-full cursor-pointer md:block hover:bg-neutral-100"
           onClick={() => {}}>
-          Airbnb your home
+          BMS your home
         </div>
 
         <div
@@ -39,7 +39,7 @@ export default function UserMenu({ currentUser }: UserMenuProps) {
           <AiOutlineMenu />
 
           <div className="hidden md:block">
-            <Avatar />
+            <Avatar src={currentUser?.image} />
           </div>
         </div>
       </div>
