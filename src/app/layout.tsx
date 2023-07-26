@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import ClientOnly from "@/components/common/ClientOnly";
 import RegisterModal from "@/components/common/modals/RegisterModal";
 import ToasterProvider from "@/providers/ToasterProvider";
+import LoginModal from "@/components/common/modals/LoginModal";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -25,8 +26,9 @@ export default function RootLayout({
         <ClientOnly>
           <ToasterProvider />
           <RegisterModal />
-          <Navbar />
+          <LoginModal />
         </ClientOnly>
+        <Navbar />
         {children}
         <Footer />
       </body>
