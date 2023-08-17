@@ -5,6 +5,7 @@ import Container from "../common/Container";
 import Logo from "../common/Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
+import Categories from "../common/Categories";
 
 interface NavbarProps {
   currentUser?: SafeUser | null;
@@ -22,6 +23,7 @@ export default function Navbar({ currentUser }: NavbarProps) {
           </div>
         </Container>
       </div>
+      <Categories />
     </header>
   );
 }
