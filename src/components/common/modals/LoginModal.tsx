@@ -92,11 +92,14 @@ export default function LoginModal() {
 
       <div className={"text-neutral-500 text-center mt-4 font-light"}>
         <div className="flex flex-row items-center justify-center gap-2">
-          <div>Already have an account ?</div>
+          <div>{`Don't`} have an account ?</div>
           <div
-            onClick={() => loginModal.onClose()}
+            onClick={() => {
+              loginModal.onClose();
+              registerModal.onOpen();
+            }}
             className="cursor-pointer text-neutral-800 hover:underline">
-            Log In
+            Sign Up
           </div>
         </div>
       </div>

@@ -13,9 +13,11 @@ import Heading from "../Heading";
 import Input from "../inputs/Input";
 import Button from "../Button";
 import { signIn } from "next-auth/react";
+import useLoginModal from "@/hooks/useLoginModal";
 
 export default function RegisterModal() {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -98,7 +100,10 @@ export default function RegisterModal() {
         <div className="flex flex-row items-center justify-center gap-2">
           <div>Already have an account ?</div>
           <div
-            onClick={() => registerModal.onClose()}
+            onClick={() => {
+              registerModal.onClose();
+              loginModal.onOpen();
+            }}
             className="cursor-pointer text-neutral-800 hover:underline">
             Log In
           </div>
