@@ -48,6 +48,11 @@ export default function RegisterModal() {
       });
   };
 
+  const toggle = useCallback(() => {
+    registerModal.onClose();
+    loginModal.onOpen();
+  }, [registerModal, loginModal]);
+
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading title="Welcome to Book My Stay" subtitle="Create an account" />
@@ -100,10 +105,7 @@ export default function RegisterModal() {
         <div className="flex flex-row items-center justify-center gap-2">
           <div>Already have an account ?</div>
           <div
-            onClick={() => {
-              registerModal.onClose();
-              loginModal.onOpen();
-            }}
+            onClick={toggle}
             className="cursor-pointer text-neutral-800 hover:underline">
             Log In
           </div>

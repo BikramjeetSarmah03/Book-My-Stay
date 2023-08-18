@@ -1,7 +1,7 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { AiFillGithub } from "react-icons/ai";
@@ -50,6 +50,11 @@ export default function LoginModal() {
     });
   };
 
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
+
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading title="Welcome Back" subtitle="Login to your account" />
@@ -92,14 +97,11 @@ export default function LoginModal() {
 
       <div className={"text-neutral-500 text-center mt-4 font-light"}>
         <div className="flex flex-row items-center justify-center gap-2">
-          <div>{`Don't`} have an account ?</div>
+          <div>First time using Book My Stay ?</div>
           <div
-            onClick={() => {
-              loginModal.onClose();
-              registerModal.onOpen();
-            }}
+            onClick={toggle}
             className="cursor-pointer text-neutral-800 hover:underline">
-            Sign Up
+            Create an account
           </div>
         </div>
       </div>
