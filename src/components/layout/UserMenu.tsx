@@ -9,6 +9,7 @@ import { toast } from "react-hot-toast";
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../common/Avatar";
 import MenuItem from "./MenuItem";
+import useRentModal from "@/hooks/useRentModal";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
@@ -19,17 +20,27 @@ export default function UserMenu({ currentUser }: UserMenuProps) {
 
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+  const rentModal = useRentModal();
 
   const toogleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
+
+  const onRent = useCallback(() => {
+    if (!currentUser) {
+      return loginModal.onOpen();
+    }
+
+    // open rent modal
+    rentModal.onOpen();
+  }, [currentUser, loginModal, rentModal]);
 
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div
           className="hidden px-4 py-3 text-sm font-semibold transition rounded-full cursor-pointer md:block hover:bg-neutral-100"
-          onClick={() => {}}>
+          onClick={onRent}>
           BMS your home
         </div>
 
@@ -53,7 +64,7 @@ export default function UserMenu({ currentUser }: UserMenuProps) {
                 <MenuItem onClick={() => {}} label="My Favorites" />
                 <MenuItem onClick={() => {}} label="My Reservations" />
                 <MenuItem onClick={() => {}} label="My Properties" />
-                <MenuItem onClick={() => {}} label="BMS my Home" />
+                <MenuItem onClick={rentModal.onOpen} label="BMS my Home" />
                 <hr />
                 <MenuItem
                   onClick={() => {
