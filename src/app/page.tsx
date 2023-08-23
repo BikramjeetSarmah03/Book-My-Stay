@@ -1,13 +1,32 @@
-export default function Home() {
+import getCurrentUser from "@/actions/getCurrentUser";
+import getListings from "@/actions/getListings";
+import EmptyState from "@/components/EmptyState";
+import ListingCard from "@/components/listing/ListingCard";
+import ClientOnly from "@/components/common/ClientOnly";
+import Container from "@/components/common/Container";
+import { Listing } from "@prisma/client";
+
+export default async function Home() {
+  const listings = await getListings();
+  const currentUser = await getCurrentUser();
+
+  if (listings.length === 0) {
+    return (
+      <ClientOnly>
+        <EmptyState showReset />
+      </ClientOnly>
+    );
+  }
+
   return (
-    <div>
-      Home
-      <h1>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia nostrum
-        saepe ducimus tenetur minus, eum ad placeat dolore ullam cupiditate ipsa
-        tempora quo obcaecati vitae. Non soluta nihil, nam obcaecati reiciendis
-        id incidunt nesciunt, maiores, rerum maxime illum. Facere, aut!
-      </h1>
-    </div>
+    <ClientOnly>
+      <Container>
+        <div className="grid grid-cols-1 gap-8 pt-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+          {listings.map((listing: Listing) => {
+            return <ListingCard key={listing.id} data={listing} />;
+          })}
+        </div>
+      </Container>
+    </ClientOnly>
   );
 }
