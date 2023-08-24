@@ -4,7 +4,7 @@ import EmptyState from "@/components/EmptyState";
 import ListingCard from "@/components/listing/ListingCard";
 import ClientOnly from "@/components/common/ClientOnly";
 import Container from "@/components/common/Container";
-import { Listing } from "@prisma/client";
+import { SafeListing } from "@/types";
 
 export default async function Home() {
   const listings = await getListings();
@@ -22,7 +22,7 @@ export default async function Home() {
     <ClientOnly>
       <Container>
         <div className="grid grid-cols-1 gap-8 pt-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-          {listings.map((listing: Listing) => {
+          {listings.map((listing: SafeListing) => {
             return (
               <ListingCard
                 key={listing.id}
