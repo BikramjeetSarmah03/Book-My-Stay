@@ -14,7 +14,7 @@ export default function Header() {
 
       <div className="flex items-center">
         <Link
-          href={"/signup"}
+          href={"/sign-up"}
           className={cn(
             buttonVariants({ variant: "ghost" }),
             "hover:bg-gray-100/10 hover:text-white"
