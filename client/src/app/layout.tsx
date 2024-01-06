@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import { cn } from "@/lib/utils";
 import ToastProvider from "@/providers/toast-provider";
 import QueryProvider from "@/providers/query-provider";
+import { AppContextProvider } from "@/contexts/AppContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,10 +25,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(inter.className, "flex flex-col min-h-screen")}>
         <QueryProvider>
-          <Header />
-          {children}
-          <Footer />
-          <ToastProvider />
+          <AppContextProvider>
+            <Header />
+            {children}
+            <Footer />
+            <ToastProvider />
+          </AppContextProvider>
         </QueryProvider>
       </body>
     </html>

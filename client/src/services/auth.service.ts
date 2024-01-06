@@ -17,3 +17,13 @@ export async function registerUser(values: z.infer<typeof registerFormSchema>) {
     return error;
   }
 }
+
+export async function validateToken() {
+  try {
+    const { data: resData } = await API.get("/api/v1/auth/validate-token");
+
+    return resData;
+  } catch (error) {
+    return error;
+  }
+}

@@ -83,3 +83,14 @@ export const logoutUser = async (
     });
   }
 };
+
+export const validateToken = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  res.status(200).json({
+    success: true,
+    userId: req.userId,
+  });
+};
