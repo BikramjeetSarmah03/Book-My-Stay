@@ -1,0 +1,101 @@
+<nav
+  class="sticky top-0 z-10 flex items-center justify-between p-4 overflow-x-hidden bg-white"
+>
+  <div class="flex items-center gap-4 p-2 md:p-4 md:gap-8">
+    <a
+      routerLink="/"
+      class="flex items-center justify-center gap-4 font-semibold"
+    >
+      <img src="../../../../assets/logo.png" alt="logo" class="w-8 h-8" />
+      <span class="text-lg md:text-xl md:hidden lg:block">Book My Stay</span>
+    </a>
+
+    <div class="items-center hidden text-lg lg:ml-4 md:gap-8 lg:gap-12 md:flex">
+      <a routerLink="/">Home</a>
+      <a routerLink="/properties">Properties</a>
+      <a routerLink="/about">About</a>
+      <a routerLink="/contact">Contact</a>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-2">
+    @if (user) {
+    <div class="flex items-center gap-4">
+      <img
+        src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        alt="profile_pic"
+        class="rounded-full h-11 w-11"
+      />
+      <span class="hidden font-semibold md:block">John Doe</span>
+
+      <a
+        routerLink="/profile"
+        class="relative hidden p-3 px-6 text-base font-semibold transition-all duration-300 bg-yellow-400 hover:bg-yellow-500 hover:scale-105 md:block"
+      >
+        <div
+          class="absolute flex items-center justify-center w-6 h-6 p-1 font-semibold text-white bg-red-600 rounded-full -top-2 -right-2"
+        >
+          3
+        </div>
+        <span>Profile</span>
+      </a>
+
+      <button class="md:hidden" (click)="toggleSidebar()">
+        <ion-icon name="menu" size="large"></ion-icon>
+      </button>
+    </div>
+    }@else {
+    <div class="flex items-center gap-4">
+      <div class="items-center hidden gap-4 md:flex">
+        <a class="px-4 py-2 border rounded-md" routerLink="/auth/login"
+          >Sign in</a
+        >
+        <a
+          class="px-4 py-2 transition-all duration-300 bg-yellow-400 border rounded-md hover:bg-yellow-500"
+          routerLink="/auth/register"
+          className="register"
+        >
+          Sign up
+        </a>
+      </div>
+
+      <button class="md:hidden" (click)="toggleSidebar()">
+        <ion-icon name="menu" size="large"></ion-icon>
+      </button>
+    </div>
+    }
+
+    <div [classList]="openSidebar ? 'menu active-menu' : 'menu '">
+      <button
+        class="flex items-center justify-center w-6 h-6 text-xl text-black bg-gray-100 rounded-full"
+        (click)="toggleSidebar()"
+      >
+        <ion-icon name="close" size="small" class="text-black"></ion-icon>
+      </button>
+
+      <div
+        class="flex flex-col items-center justify-center flex-1 h-full gap-12 text-xl"
+      >
+        <a class="hover:underline" routerLink="/">Home</a>
+        <a class="hover:underline" routerLink="/properties">Properties</a>
+        <a class="hover:underline" routerLink="/about">About</a>
+        <a class="hover:underline" routerLink="/contact">Contact</a>
+
+        @if (!user) {
+        <div class="flex flex-col items-center gap-4">
+          <a class="px-4 py-2 border rounded-md" routerLink="/auth/login"
+            >Sign in</a
+          >
+          <a
+            class="px-4 py-2 bg-yellow-500 rounded-md"
+            routerLink="/auth/register"
+            className="register"
+          >
+            Sign up
+          </a>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</nav>
