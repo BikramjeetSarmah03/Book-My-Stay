@@ -1,0 +1,48 @@
+<div class="my-4 h-72 md:h-auto">
+  <div class="type">
+    <!-- <button ="let type of types" 
+              [class.active]="query.type === type" 
+              (click)="switchType(type)">
+        {{ type }}
+      </button> -->
+    @for (type of tabTypes; track $index) {
+    <button [class.active]="query.type === type" (click)="switchType(type)">
+      {{ type }}
+    </button>
+    }
+  </div>
+
+  <form
+    class="md:border flex flex-col md:flex-row justify-between md:justify-start h-16 gap-2.5 md:gap-0"
+  >
+    <input
+      type="text"
+      name="location"
+      placeholder="City Location"
+      [(ngModel)]="query.location"
+    />
+    <input
+      type="number"
+      name="minPrice"
+      min="0"
+      max="10000000"
+      placeholder="Min Price"
+      [(ngModel)]="query.minPrice"
+    />
+    <input
+      type="number"
+      name="maxPrice"
+      min="0"
+      max="10000000"
+      placeholder="Max Price"
+      [(ngModel)]="query.maxPrice"
+    />
+
+    <button
+      type="submit"
+      class="flex items-center justify-center flex-1 px-4 py-2 transition-all duration-300 bg-yellow-400 hover:bg-yellow-500"
+    >
+      <img src="../../../../assets/search.png" alt="Search" />
+    </button>
+  </form>
+</div>

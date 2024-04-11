@@ -5,8 +5,5 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './single-property.component.html',
-  styleUrl: './single-property.component.css'
 })
-export class SinglePropertyComponent {
-
-}
+export class SinglePropertyComponent {}

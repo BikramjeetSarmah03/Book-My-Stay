@@ -1,0 +1,28 @@
+.type > button{
+    padding: 16px 36px;
+    border: 1px solid #999;
+    border-bottom: none;
+    cursor: pointer;
+    background-color: white;
+    text-transform: capitalize;
+
+}
+
+.type > button.active{
+    background-color: black;
+    color: white;
+}
+
+.type > button:first-child{
+    border-top-left-radius: 5px;
+    border-right: none;
+}
+
+.type > button:last-child{
+    border-top-right-radius: 5px;
+    border-left: none;
+}
+
+form > input {
+    @apply border border-black p-4 md:border-none
+}
