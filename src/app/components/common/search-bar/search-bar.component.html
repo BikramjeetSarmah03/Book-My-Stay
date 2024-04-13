@@ -20,6 +20,7 @@
       name="location"
       placeholder="City Location"
       [(ngModel)]="query.location"
+      class="md:flex-[1.2] lg:flex-[2]"
     />
     <input
       type="number"
@@ -28,6 +29,7 @@
       max="10000000"
       placeholder="Min Price"
       [(ngModel)]="query.minPrice"
+      class="md:flex-[1.2] lg:flex-[2]"
     />
     <input
       type="number"
@@ -36,11 +38,12 @@
       max="10000000"
       placeholder="Max Price"
       [(ngModel)]="query.maxPrice"
+      class="md:flex-[1.2] lg:flex-[2]"
     />
 
     <button
       type="submit"
-      class="flex items-center justify-center flex-1 px-4 py-2 transition-all duration-300 bg-yellow-400 hover:bg-yellow-500"
+      class="flex items-center justify-center flex-1 px-4 py-2 transition-all duration-300 bg-yellow-400 md:w-40 hover:bg-yellow-500"
     >
       <img src="../../../../assets/search.png" alt="Search" />
     </button>

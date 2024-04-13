@@ -1,0 +1,48 @@
+<div class="flex gap-5">
+  <a routerLink="{{ item.id }}" class="hidden lg:block lg:flex-[2] h-[200px]">
+    <img
+      class="object-cover w-full h-full rounded-xl"
+      src="{{ item.img }}"
+      alt="{{ item.title }}"
+    />
+  </a>
+
+  <div class="flex-[3] flex flex-col justify-between gap-2.5">
+    <h2
+      class="text-xl font-semibold text-[#444] transition-all duration-300 hover:text-black hover:scale-[1.01]"
+    >
+      <a routerLink="{{ item.id }}">{{ item.title }}</a>
+    </h2>
+    <p class="text-sm flex items-center gap-1.5 text-[#888]">
+      <img class="w-4 h-4" src="../../../../assets/pin.png" alt="" />
+      <span>{{ item.address }}</span>
+    </p>
+    <p class="px-3 py-1 text-xl font-light bg-yellow-500 rounded-md w-max">
+      $ {{ item.price }}
+    </p>
+    <div class="flex justify-between gap-2.5">
+      <div class="flex gap-2.5 text-sm">
+        <div class="flex items-center gap-1.5 bg-gray-200 p-1.5 rounded-md">
+          <img class="w-4 h-4" src="../../../../assets/bed.png" alt="" />
+          <span>{{ item.bedroom }} bedroom</span>
+        </div>
+        <div class="flex items-center gap-1.5 bg-gray-200 p-1.5 rounded-md">
+          <img class="w-4 h-4" src="../../../../assets/bath.png" alt="" />
+          <span>{{ item.bathroom }} bathroom</span>
+        </div>
+      </div>
+      <div class="flex gap-5">
+        <div
+          class="flex items-center justify-center p-2 transition-all duration-300 border rounded-md cursor-pointer hover:bg-gray-300"
+        >
+          <img class="w-4 h-4" src="../../../../assets/save.png" alt="" />
+        </div>
+        <div
+          class="flex items-center justify-center p-2 transition-all duration-300 border rounded-md cursor-pointer hover:bg-gray-300"
+        >
+          <img class="w-4 h-4" src="../../../../assets/chat.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

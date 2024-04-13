@@ -3,4 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.h-full-screen {
+  min-height: calc(100vh - 76px);
+}

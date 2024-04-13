@@ -1,1 +1,20 @@
-<p>properties works!</p>
+<div class="flex h-full-screen">
+  <div class="flex-[3] h-full">
+    <div
+      class="h-full-screen pr-[50px] flex flex-col gap-[50px] overflow-y-auto pb-[50px]"
+    >
+      <!-- filter -->
+      <app-filter></app-filter>
+
+      <!-- cards -->
+      @for (item of listData; track $index) {
+      <app-property-card [item]="item"></app-property-card>
+      }
+    </div>
+  </div>
+
+  <div class="hidden lg:flex-[2] h-full-screen bg-[#fcf5f3] lg:block">
+    <!-- map -->
+    hey
+  </div>
+</div>
