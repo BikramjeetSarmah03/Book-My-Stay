@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { FilterComponent } from '../../components/common/filter/filter.component';
 import { PropertyCardComponent } from '../../components/cards/property-card/property-card.component';
+import { MapComponent } from '../../components/map/map.component';
 
 @Component({
   selector: 'app-properties',
   standalone: true,
-  imports: [FilterComponent, PropertyCardComponent],
+  imports: [FilterComponent, PropertyCardComponent, MapComponent],
   templateUrl: './properties.component.html',
 })
 export class PropertiesComponent {
