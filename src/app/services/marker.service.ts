@@ -18,7 +18,7 @@ export class MarkerService {
         .bindPopup(
           `
           <div class="flex gap-5 min-w-40">
-              <img src="${mark.img}" alt="pinImg" class="w-[64px] h-[64px] object-cover rounded-md" />
+              <img src="${mark.img}" alt="pinImg" class="w-[64px] h-[64px] object-cover rounded-md" loading="lazy" />
               <div class="flex flex-col justify-between w-fit">
                 <a routerLink="/property/${mark.id}">${mark.title}</a>
                 <span>${mark.bedroom} bedroom</span>

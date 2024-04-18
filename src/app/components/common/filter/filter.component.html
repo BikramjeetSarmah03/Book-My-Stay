@@ -12,11 +12,11 @@
       />
     </div>
   </div>
-  <div class="flex flex-wrap justify-between gap-5">
+  <div class="grid justify-between grid-cols-2 gap-5 md:flex md:flex-wrap">
     <div class="flex flex-col gap-0.5">
       <label class="text-xs" htmlFor="type">Type</label>
       <select
-        class="w-[100px] p-2.5 border rounded-md text-base"
+        class="w-full md:w-[100px] p-2.5 border rounded-md text-base"
         name="type"
         id="type"
       >
@@ -28,7 +28,7 @@
     <div class="flex flex-col gap-0.5">
       <label class="text-xs" htmlFor="property">Property</label>
       <select
-        class="w-[100px] p-2.5 border rounded-md text-base"
+        class="w-full md:w-[100px] p-2.5 border rounded-md text-base"
         name="property"
         id="property"
       >
@@ -42,7 +42,7 @@
     <div class="flex flex-col gap-0.5">
       <label class="text-xs" htmlFor="minPrice">Min Price</label>
       <input
-        class="w-[100px] p-2.5 border rounded-md text-base"
+        class="w-full md:w-[100px] p-2.5 border rounded-md text-base"
         type="number"
         id="minPrice"
         name="minPrice"
@@ -52,7 +52,7 @@
     <div class="flex flex-col gap-0.5">
       <label class="text-xs" htmlFor="maxPrice">Max Price</label>
       <input
-        class="w-[100px] p-2.5 border rounded-md text-base"
+        class="w-full md:w-[100px] p-2.5 border rounded-md text-base"
         type="text"
         id="maxPrice"
         name="maxPrice"
@@ -62,15 +62,16 @@
     <div class="flex flex-col gap-0.5">
       <label class="text-xs" htmlFor="bedroom">Bedroom</label>
       <input
-        class="w-[100px] p-2.5 border rounded-md text-base"
+        class="w-full md:w-[100px] p-2.5 border rounded-md text-base"
         type="text"
         id="bedroom"
         name="bedroom"
         placeholder="any"
       />
     </div>
+
     <button
-      class="w-[100px] px-3 py-2 bg-yellow-500 hover:bg-yellow-600 flex items-center justify-center"
+      class="w-full md:w-[100px] px-3 py-2 bg-yellow-500 hover:bg-yellow-600 flex items-center justify-center"
     >
       <img
         src="../../../../assets/search.png"
