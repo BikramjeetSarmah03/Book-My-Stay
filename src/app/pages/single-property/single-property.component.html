@@ -1,1 +1,49 @@
-<p>single-property works!</p>
+<div
+  class="flex flex-col overflow-scroll h-full-screen lg:flex-row md:overflow-auto"
+>
+  <div
+    class="flex-none h-max mb-[50px] lg:flex-[3] lg:h-full-screen lg:overflow-y-scroll"
+  >
+    <div class="lg:pr-5 xl:pr-[50px]">
+      <app-slider [images]="postData.images"></app-slider>
+      <div class="mt-[50px]">
+        <div class="flex flex-col justify-between gap-5 md:flex-row md:gap-0">
+          <div class="flex flex-col gap-5">
+            <h1 class="text-2xl font-normal md:text-4xl">
+              {{ postData.title }}
+            </h1>
+            <div class="flex gap-2.5 items-center text-[#888] text-sm">
+              <img
+                src="../../../assets/pin.png"
+                loading="lazy"
+                alt=""
+                class="w-4 h-4"
+              />
+              <span>{{ postData.address }}</span>
+            </div>
+            <div
+              class="p-1.5 bg-[rgba(254,205,81,0.438)] w-max text-xl font-light rounded-md px-3 transition-all duration-300"
+            >
+              $ {{ postData.price }}
+            </div>
+          </div>
+          <div
+            class="flex flex-col items-center justify-center gap-5 md:py-0 px-[50px] rounded-xl bg-[rgba(254,205,81,0.209)] font-semibold py-5"
+          >
+            <img
+              src="{{ userData.img }}"
+              alt=""
+              loading="lazy"
+              class="w-[50px] h-[50px] rounded-full object-cover"
+            />
+            <span>{{ userData.name }}</span>
+          </div>
+        </div>
+        <div class="mt-[50px] text-[#555] leading-5">
+          {{ postData.description }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="features"></div>
+</div>

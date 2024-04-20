@@ -5,6 +5,7 @@
 
 .h-full-screen {
   min-height: calc(100vh - 76px);
+  max-height: calc(100vh - 76px);
 }
 
 .max-h-full-screen{
