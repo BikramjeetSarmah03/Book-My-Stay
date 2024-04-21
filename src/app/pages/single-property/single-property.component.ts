@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { SliderComponent } from '../../components/common/slider/slider.component';
+import { MapComponent } from '../../components/map/map.component';
 
 @Component({
   selector: 'app-single-property',
   standalone: true,
-  imports: [SliderComponent],
+  imports: [SliderComponent, MapComponent],
   templateUrl: './single-property.component.html',
 })
 export class SinglePropertyComponent {

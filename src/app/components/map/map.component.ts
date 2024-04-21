@@ -28,7 +28,7 @@ L.Marker.prototype.options.icon = iconDefault;
   styleUrl: './map.component.css',
 })
 export class MapComponent implements AfterViewInit {
-  @Input() items!: IProperty[];
+  @Input() items!: IProperty[] | any;
 
   constructor(private markerService: MarkerService) {}
 
