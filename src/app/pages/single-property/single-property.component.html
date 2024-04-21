@@ -1,11 +1,12 @@
 <div
-  class="flex flex-col overflow-scroll h-full-screen lg:flex-row md:overflow-auto"
+  class="flex flex-col pt-4 overflow-scroll h-full-screen lg:flex-row md:overflow-auto"
 >
   <div
     class="flex-none h-max mb-[50px] lg:flex-[3] lg:h-full-screen lg:overflow-y-scroll"
   >
     <div class="lg:pr-5 xl:pr-[50px]">
       <app-slider [images]="postData.images"></app-slider>
+
       <div class="mt-[50px]">
         <div class="flex flex-col justify-between gap-5 md:flex-row md:gap-0">
           <div class="flex flex-col gap-5">
@@ -45,5 +46,7 @@
       </div>
     </div>
   </div>
+
+  <div class="flex-[2]"></div>
   <div class="features"></div>
 </div>

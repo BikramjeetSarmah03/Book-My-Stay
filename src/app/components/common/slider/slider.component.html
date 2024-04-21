@@ -1,1 +1,67 @@
-<p>slider works!</p>
+<div class="h-[200px] w-full md:h-[350px] flex gap-5">
+  @if (imageIndex!==null) {
+
+  <div
+    class="absolute w-screen h-screen top-0 left-0 bg-black flex justify-between accent-inherit z-[9999]"
+  >
+    <div
+      class="flex items-center justify-center flex-1"
+      (click)="changeSlide('left')"
+    >
+      <img
+        src="../../../../assets/arrow.png"
+        alt=""
+        class="w-5 md:w-[30px] lg:w-[50px] cursor-pointer"
+        loading="lazy"
+      />
+    </div>
+    <div class="flex-[10] flex items-center justify-center">
+      <img
+        src="{{ images[imageIndex] }}"
+        alt="image"
+        loading="lazy"
+        class="object-cover w-full overflow-hidden h-1/2 rounded-2xl"
+      />
+    </div>
+    <div
+      class="flex items-center justify-center flex-1"
+      (click)="changeSlide('right')"
+    >
+      <img
+        src="../../../../assets/arrow.png"
+        alt="right"
+        loading="lazy"
+        class="w-5 md:w-[30px] lg:w-[50px] cursor-pointer rotate-180"
+      />
+    </div>
+    <div
+      class="absolute top-0 right-0 text-white text-2xl font-semibold p-[50px] cursor-pointer"
+      (click)="resetIndex(null)"
+    >
+      X
+    </div>
+  </div>
+  }
+  <div class="flex-[2] md:flex-[3]">
+    <img
+      src="{{ images[0] }}"
+      alt="img"
+      loading="lazy"
+      class="object-cover w-full h-full rounded-md cursor-pointer"
+      (click)="resetIndex(0)"
+    />
+  </div>
+  <div class="flex flex-col justify-between flex-1 h-full gap-5 overflow-auto">
+    @for (image of images.slice(1); track $index) {
+
+    <img
+      src="{{ image }}"
+      alt="smallImages"
+      key="{index}"
+      loading="lazy"
+      (click)="resetIndex($index + 1)"
+      class="h-20 md:h-[100px] object-cover rounded-md cursor-pointer"
+    />
+    }
+  </div>
+</div>
