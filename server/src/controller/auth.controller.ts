@@ -48,7 +48,7 @@ export const loginUser = async (
   });
 
   if (!userExist)
-    return res.status(404).json({
+    return res.status(500).json({
       success: false,
       message: "Invalid credentials",
     });
