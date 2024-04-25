@@ -1,5 +1,9 @@
-<div class="flex flex-col overflow-y-auto md:flex-row h-full-screen">
-  <div class="flex-none md:flex-[3] h-max pb-[50px] overflow-y-auto ml-6 pt-4">
+<div
+  class="flex flex-col pb-4 m-4 overflow-y-auto lg:m-0 lg:flex-row h-full-screen"
+>
+  <div
+    class="flex-none lg:flex-[3] h-max pb-[50px] overflow-y-auto lg:ml-6 pt-4"
+  >
     <div class="pr-[50px] flex flex-col gap-[50px]">
       <div class="flex items-center justify-between">
         <h1 class="text-2xl md:text-4xl">User Information</h1>
@@ -47,9 +51,10 @@
     </div>
   </div>
 
-  <div class="w-full h-max md:h-full-screen flex-none lg:flex-[2] bg-[#fcf5f3]">
+  <div class="w-full h-max flex-none lg:flex-[2] bg-[#fcf5f3]">
     <div class="h-full px-5 py-0">
-      chat
+      <app-chatlist></app-chatlist>
+
       <!-- <Chat/> -->
     </div>
   </div>
