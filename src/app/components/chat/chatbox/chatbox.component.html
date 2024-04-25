@@ -1,1 +1,31 @@
-<p>works chatbox</p>
+<div class="flex flex-col justify-between flex-1 h-full bg-white">
+  <div class="flex items-center justify-between p-4 bg-[#f7c14b85]">
+    <div class="flex items-center gap-4">
+      <img
+        src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        alt=""
+        class="object-cover w-10 h-10 rounded-full"
+      />
+      <span class="text-xl font-semibold"> John Doe</span>
+    </div>
+    <!-- <span class="close" onClick={() => setChat(null)}> -->
+    <button (click)="toggleChatbox()">X</button>
+  </div>
+
+  <div class="h-[300px] overflow-y-auto p-5 flex flex-col gap-5">
+    @for (message of messages; track $index) {
+
+    <app-message [message]="message"></app-message>
+    }
+  </div>
+  <div
+    class="border-t border-[#f7c14b85] h-[60px] flex items-center justify-between"
+  >
+    <textarea class="flex-[3] h-full border-none p-5 overflow-auto"></textarea>
+    <button
+      class="flex-1 h-full transition-all duration-300 bg-yellow-400 hover:bg-yellow-500"
+    >
+      Send
+    </button>
+  </div>
+</div>

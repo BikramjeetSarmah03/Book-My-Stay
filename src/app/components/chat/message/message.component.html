@@ -1,1 +1,6 @@
-<p>message works!</p>
+<div class="w-1/2" [classList]="message.own ? 'own' : ''">
+  <p>{{ message.msg }}</p>
+  <span class="text-xs bg-[#f7c14b39] p-0.5 rounded-md">{{
+    message.time
+  }}</span>
+</div>

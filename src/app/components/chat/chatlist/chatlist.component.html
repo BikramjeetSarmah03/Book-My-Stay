@@ -1,12 +1,19 @@
-<div>
-    @for (chat of chatList; track $index) {
-    <app-chat-item></app-chat-item>
-    }
-  
-  
-  
+<div class="overflow-y-hidden max-h-full-screen">
+  <h1 class="mb-4 text-3xl font-light">Messages</h1>
+
+  <div class="flex flex-col max-h-full-screen">
+    <div
+      class="flex flex-col gap-4 pb-4 overflow-y-auto max-h-[26rem]"
+      [style]="openChatbox ? 'max-height:26rem;' : 'max-height:100%;'"
+    >
+      @for (chat of chatList; track $index) {
+      <app-chat-item [item]="chat"></app-chat-item>
+      }
+    </div>
+
     @if (openChatbox) {
-      
+    <app-chatbox (openStateChanged)="onOpenStateChanged($event)"></app-chatbox>
+
     }
   </div>
-  
+</div>

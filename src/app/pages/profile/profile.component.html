@@ -2,7 +2,7 @@
   class="flex flex-col pb-4 m-4 overflow-y-auto lg:m-0 lg:flex-row h-full-screen"
 >
   <div
-    class="flex-none lg:flex-[3] h-max pb-[50px] overflow-y-auto lg:ml-6 pt-4"
+    class="flex-none lg:flex-[3] h-max lg:h-auto lg:max-h-full-screen pb-[50px] overflow-y-auto lg:ml-6 pt-4"
   >
     <div class="pr-[50px] flex flex-col gap-[50px]">
       <div class="flex items-center justify-between">
@@ -51,11 +51,9 @@
     </div>
   </div>
 
-  <div class="w-full h-max flex-none lg:flex-[2] bg-[#fcf5f3]">
+  <div class="w-full max-h-full-screen flex-none lg:flex-[2] bg-[#fcf5f3]">
     <div class="h-full px-5 py-0">
       <app-chatlist></app-chatlist>
-
-      <!-- <Chat/> -->
     </div>
   </div>
 </div>

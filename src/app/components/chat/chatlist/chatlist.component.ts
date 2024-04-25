@@ -11,11 +11,62 @@ import { ChatItemComponent } from '../chat-item/chat-item.component';
 })
 export class ChatlistComponent {
   chatList = chatList;
+  openChatbox = true;
 
-  openChatbox = false;
+  onOpenStateChanged(newState: boolean) {
+    console.log(newState);
+    // Handle state change from ChatboxComponent
+    this.openChatbox = newState;
+  }
+}
+
+export interface IChatItem {
+  img: string;
+  name: string;
+  msg: string;
 }
 
 export const chatList = [
+  {
+    img: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    name: 'John Doe',
+    msg: 'lorem ipsum dolor sit amet...',
+  },
+  {
+    img: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    name: 'John Doe',
+    msg: 'lorem ipsum dolor sit amet...',
+  },
+  {
+    img: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    name: 'John Doe',
+    msg: 'lorem ipsum dolor sit amet...',
+  },
+  {
+    img: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    name: 'John Doe',
+    msg: 'lorem ipsum dolor sit amet...',
+  },
+  {
+    img: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    name: 'John Doe',
+    msg: 'lorem ipsum dolor sit amet...',
+  },
+  {
+    img: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    name: 'John Doe',
+    msg: 'lorem ipsum dolor sit amet...',
+  },
+  {
+    img: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    name: 'John Doe',
+    msg: 'lorem ipsum dolor sit amet...',
+  },
+  {
+    img: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    name: 'John Doe',
+    msg: 'lorem ipsum dolor sit amet...',
+  },
   {
     img: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     name: 'John Doe',
