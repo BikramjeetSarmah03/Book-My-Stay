@@ -1,13 +1,11 @@
-import { NextFunction, Request, Response } from "express";
-import { comparePasswords, hashPassword } from "../utils/password";
-import prisma from "../utils/prisma";
+import { NextFunction, Request, Response } from 'express';
+import { comparePasswords, hashPassword } from '../utils/password';
+import prisma from '../utils/prisma';
+import ErrorHandler from '../utils/ErrorHandler';
+import { catchAsyncErrors } from '../middlewares/catchAsyncErrors';
 
-export const registerUser = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  try {
+export const registerUser = catchAsyncErrors(
+  async (req: Request, res: Response, next: NextFunction) => {
     const { username, email, password } = req.body;
 
     const { hash, salt } = hashPassword(password);
@@ -23,61 +21,41 @@ export const registerUser = async (
 
     res.status(201).json({
       success: true,
-      message: "User Registration Successfull",
+      message: 'User Registration Successfull',
       user,
     });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "Internal Server error",
+  }
+);
+
+export const loginUser = catchAsyncErrors(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { email, password } = req.body;
+
+    const userExist = await prisma.user.findUnique({
+      where: {
+        email,
+      },
+    });
+
+    if (!userExist) return new ErrorHandler('Invalid credentials', 401);
+
+    const passwordMatch = comparePasswords(
+      password,
+      userExist.salt,
+      userExist.password
+    );
+
+    if (!passwordMatch) return new ErrorHandler('Invalid Credentials', 401);
+  }
+);
+
+export const logoutUser = catchAsyncErrors(
+  async (req: Request, res: Response, next: NextFunction) => {
+    res.clearCookie('book-my-stay-token');
+
+    res.status(200).json({
+      success: true,
+      message: 'Logout Successfully',
     });
   }
-};
-
-export const loginUser = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  const { email, password } = req.body;
-
-  const userExist = await prisma.user.findUnique({
-    where: {
-      email,
-    },
-  });
-
-  if (!userExist)
-    return res.status(500).json({
-      success: false,
-      message: "Invalid credentials",
-    });
-
-  const passwordMatch = comparePasswords(
-    password,
-    userExist.salt,
-    userExist.password
-  );
-
-  if (!passwordMatch)
-    return res.status(500).json({
-      success: false,
-      message: "Invalid Credentials",
-    });
-
-  res.status(200).json({
-    success: true,
-    message: "Login Sucessfully",
-  });
-};
-
-export const logoutUser = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  res.status(200).json({
-    success: true,
-    message: "Logout Successfully",
-  });
-};
+);
