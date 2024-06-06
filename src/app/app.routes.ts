@@ -42,12 +42,17 @@ export const routes: Routes = [
         path: 'contact',
         component: ContactComponent,
       },
+    ],
+  },
+  {
+    path: 'auth',
+    children: [
       {
-        path: 'auth/login',
+        path: 'login',
         component: LoginComponent,
       },
       {
-        path: 'auth/register',
+        path: 'register',
         component: RegisterComponent,
       },
     ],

@@ -1,1 +1,94 @@
-<p>register works!</p>
+<div
+  class="bg-[url('https://images.unsplash.com/photo-1477346611705-65d1883cee1e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] h-screen w-screen bg-cover"
+>
+  <div class="flex justify-start w-full h-full">
+    <div
+      class="flex flex-col items-center justify-center w-full h-full gap-10 p-4 bg-transparent lg:w-1/2 backdrop-blur-sm bg-gradient-to-br from-black/20 to-black/90"
+    >
+      <h1 class="font-serif text-xl text-white md:text-3xl lg:text-5xl">
+        Welcome to <span class="font-black text-orange-400">Book My Stay</span>
+      </h1>
+
+      <form
+        class="flex flex-col w-full gap-4 min-w-80 max-w-96"
+        (submit)="onSubmit()"
+        [formGroup]="registerForm"
+      >
+        <div class="flex flex-col justify-center w-full gap-2">
+          <label for="email" class="text-white">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            class="w-full px-4 py-2"
+            formControlName="email"
+          />
+
+          @if (registerForm.controls['email'].invalid &&
+          (registerForm.controls['email'].touched ||
+          registerForm.controls['email'].dirty)) {
+
+          <p class="text-red-500">Please enter a valid email</p>
+          }
+        </div>
+
+        <div class="flex flex-col justify-center w-full gap-2">
+          <label for="password" class="text-white">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            class="w-full px-4 py-2"
+            formControlName="password"
+          />
+
+          @if (registerForm.controls['password'].invalid &&
+          (registerForm.controls['password'].touched ||
+          registerForm.controls['password'].dirty)) {
+
+          <p class="text-red-500">Please enter a password</p>
+          }
+        </div>
+
+        <div class="flex flex-col justify-center w-full gap-2">
+          <label for="cfPassword" class="text-white">Confirm Password</label>
+          <input
+            type="password"
+            id="cfPassword"
+            placeholder="Confirm Your Password"
+            class="w-full px-4 py-2"
+            formControlName="cfPassword"
+          />
+
+          @if (registerForm.controls['cfPassword'].invalid &&
+          (registerForm.controls['cfPassword'].touched ||
+          registerForm.controls['cfPassword'].dirty)) {
+
+          <p class="text-red-500">Please confirm your password</p>
+          } @if (registerForm.controls['password'].value
+          !==registerForm.controls['cfPassword'].value) {
+          <p class="text-red-500">Passwords don't match</p>
+          }
+        </div>
+
+        <button
+          type="submit"
+          class="w-full px-6 py-3 text-white transition-all duration-300 bg-gray-900 hover:bg-gray-800"
+        >
+          Submit
+        </button>
+
+        <div class="flex items-center justify-between text-white">
+          <h2>
+            Already have an account ?
+            <a
+              class="cursor-pointer hover:text-blue-500"
+              routerLink="/auth/login"
+              >Login</a
+            >
+          </h2>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
